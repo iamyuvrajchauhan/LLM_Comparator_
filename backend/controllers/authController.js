@@ -70,7 +70,7 @@ const registerUser = async (req, res) => {
             from: process.env.EMAIL_USER,
             to: email,
             subject: 'LLMForge - Verify your account',
-            text: `Your OTP for LLMForge registration is: ${otp}. It will expire in 10 minutes.`,
+            text: `Your OTP for LLMForge registration is: {otp}. It will expire in 10 minutes.`,
           });
         } else {
           console.log(`[DEV MODE] OTP for ${email} is: ${otp}`);

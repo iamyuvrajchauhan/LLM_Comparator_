@@ -78,6 +78,11 @@ app.use('/api', apiLimiter);
 app.use('/api/auth', authRoutes);
 app.use('/api', queryRoutes);
 
+// Root route to prevent Vercel 404
+app.get('/', (req, res) => {
+  res.status(200).json({ status: 'ok', message: 'Welcome to the LLMForge Backend API!' });
+});
+
 // Simple health check route
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'LLMForge API is running' });
